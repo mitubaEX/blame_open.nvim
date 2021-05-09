@@ -9,7 +9,7 @@ local function git_origin_path()
   return result:sub(0, -6)
 end
 
-local function greet()
+local function blame_open()
   local filename = vim.fn.expand('%')
   -- if empty filename
   if filename == '' then
@@ -37,5 +37,5 @@ local function greet()
 end
 
 return {
-  greet = greet
+  blame_open = blame_open
 }
