@@ -1,9 +1,19 @@
 local vim = vim
 
-local function git_origin_path()
-  local handle = io.popen('git config --get remote.origin.url')
+local function git_remote_url()
+  local remote_name = 'remote.origin.url'
+  if vim.api.nvim_get_var('blame_open_upstream_remote') == 1 then
+    remote_name = 'remote.upstream.url'
+  end
+
+  local handle = io.popen('git config --get ' .. remote_name)
   local result = handle:read("*a")
   handle:close()
+
+  -- if empty remote url
+  if result == '' then
+    return
+  end
 
   -- remove .git string
   return result:sub(0, -6)
@@ -32,8 +42,13 @@ local function blame_open()
     return
   end
 
+  local git_repository_url = git_remote_url()
+  if git_repository_url == nil then
+    return
+  end
+
   -- https://github.com/<author>/<repo_name>/commit/<commit_hash>
-  os.execute('open ' .. git_origin_path() .. '/commit/' .. commit_hash)
+  os.execute('open ' .. git_remote_url() .. '/commit/' .. commit_hash)
 end
 
 return {

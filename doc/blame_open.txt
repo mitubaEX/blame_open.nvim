@@ -22,6 +22,10 @@ Requirements                                          *blame_open-requirements*
 ==============================================================================
 Configuration                                        *blame_open-configuration*
 
+Use upstream url.
+>
+    let g:blame_open_upstream_remote = 1
+
 ==============================================================================
 License                                                    *blame_open-license*
 

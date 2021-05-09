@@ -8,6 +8,9 @@ let g:loaded_blame_open = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
+" insert default value
+let g:blame_open_upstream_remote = get(g:, 'blame_open_upstream_remote', 0)
+
 command! BlameOpen lua require('blame_open').blame_open()
 
 let &cpo = s:save_cpo
