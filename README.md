@@ -18,3 +18,11 @@ Plug 'mitubaEX/blame_open.nvim'
 ```
 :BlameOpen
 ```
+
+## Development
+
+Load current repository files by bellow command.
+
+```
+nvim --cmd "set rtp+=."
+```
