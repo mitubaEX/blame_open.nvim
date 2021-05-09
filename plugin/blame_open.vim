@@ -8,7 +8,7 @@ let g:loaded_blame_open = 1
 let s:save_cpo = &cpo
 set cpo&vim
 
-" do something
+command! BlameOpen lua require('blame_open').greet()
 
 let &cpo = s:save_cpo
 unlet s:save_cpo
