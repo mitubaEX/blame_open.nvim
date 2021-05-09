@@ -2,7 +2,8 @@ local vim = vim
 
 local function greet()
   local filename = 'lua/blame_open.lua'
-  local handle = io.popen('git blame -l -L 1,+1 ' .. filename)
+  local line_number = vim.fn.line('.')
+  local handle = io.popen('git blame -l -L ' .. line_number .. ',+1 ' .. filename)
   local result = handle:read("*a")
   handle:close()
   local commit_hash = ''
