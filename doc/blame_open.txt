@@ -6,8 +6,15 @@ CONTENTS                                                 *blame_open-contents*
 ==============================================================================
 Introduction                               *blame_open* *blame_open-introduction*
 
+Open blame commit page of current line.
+
 ==============================================================================
 Usage                                                        *blame_open-usage*
+
+Example:
+>
+    BlameOpen
+<
 
 ==============================================================================
 Requirements                                          *blame_open-requirements*
