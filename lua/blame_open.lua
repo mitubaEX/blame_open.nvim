@@ -15,8 +15,11 @@ local function git_remote_url()
     return
   end
 
+  -- replace ssh -> https
+  local replaced_result, _ = string.gsub(result, 'git@github.com:', 'https://github.com/')
+
   -- remove .git string
-  return result:sub(0, -6)
+  return replaced_result:sub(0, -6)
 end
 
 local function blame_open()
